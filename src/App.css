@@ -138,6 +138,8 @@ form button:hover {
 .movie-review {
   font-style: italic;
   color: var(--text-color);
+  word-break: break-all;
+
 }
 
 .popup-overlay {
