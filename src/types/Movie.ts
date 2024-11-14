@@ -4,6 +4,7 @@ export interface Movie {
     releaseYear: number;
     genre: Genre;
     rating: number;
+    created_at: Date,
     coverImageUrl?: string;
     review?: string;
   }

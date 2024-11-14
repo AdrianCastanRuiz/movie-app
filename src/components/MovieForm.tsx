@@ -12,7 +12,7 @@ const MovieForm: React.FC<MovieFormProps> = ({ onAddMovie }) => {
   const [releaseYear, setReleaseYear] = useState<number | ''>('');
   const [genre, setGenre] = useState<Genre | ''>('');  
   const [rating, setRating] = useState<number | ''>('');
-  const [coverImageUrl, setCoverImageUrl] = useState('');
+  const [coverImageUrl, setCoverImageUrl] = useState<string>('');
   const [review, setReview] = useState('');
   const [yearError, setYearError] = useState<string | null>(null); 
   const [showPopup, setShowPopup] = useState(false); 
@@ -39,6 +39,7 @@ const MovieForm: React.FC<MovieFormProps> = ({ onAddMovie }) => {
       releaseYear: Number(releaseYear),
       genre: genre as Genre,
       rating: Number(rating),
+      created_at: new Date(),
       coverImageUrl,
       review,
     };

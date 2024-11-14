@@ -10,6 +10,14 @@ const MovieList: React.FC<MovieListProps> = ({ movies }) => {
   const [sortKey, setSortKey] = useState<keyof Movie | ''>('');
   const [searchQuery, setSearchQuery] = useState<string>('');
 
+ const formatDate = (date: Date ) =>{
+  const day = date.getDay().toString().padStart(2, '0')
+  const month = (date.getMonth() + 1).toString().padStart(2, '0')
+  const year = date.getFullYear().toString()
+
+  return `${day}/${month}/${year}`
+ }
+
   const filteredMovies = movies
     .filter((movie) => 
       (!filter || movie.genre === filter) &&
@@ -58,6 +66,7 @@ const MovieList: React.FC<MovieListProps> = ({ movies }) => {
             <div className="movie-details">
               <h3>{movie.title}</h3>
               <p>{movie.releaseYear} | {movie.genre} | Rating: {movie.rating}</p>
+              <p>Created at: {formatDate(movie.created_at)}</p>
               {movie.review && <p className="movie-review">Review: {movie.review}</p>}
             </div>
           </div>
